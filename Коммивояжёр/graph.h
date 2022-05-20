@@ -163,7 +163,7 @@ void salesman(int*** mat, int n, int** help, int* result)
 	prep(mat, n, help, result);
 	int s = 0;
 	answer(mat, n, help, result);
-	cout << "\nОтрезки путей: ";
+	cout << "\nРћС‚СЂРµР·РєРё РїСѓС‚РµР№: ";
 
 	for (int i = 0, j = 0; i < n; i++)
 	{
@@ -173,7 +173,7 @@ void salesman(int*** mat, int n, int** help, int* result)
 	}
 
 	cout << endl;
-	cout << "\nКратчайший путь: ";
+	cout << "\nРљСЂР°С‚С‡Р°Р№С€РёР№ РїСѓС‚СЊ: ";
 	int temp = 0;
 
 	for (int l = 0; l < n;)
@@ -191,7 +191,7 @@ void salesman(int*** mat, int n, int** help, int* result)
 		}
 	}
 
-	cout << "\nРасстояние: " << s;
+	cout << "\nР Р°СЃСЃС‚РѕСЏРЅРёРµ: " << s;
 	cout << endl;
 }
 
@@ -199,14 +199,14 @@ void salesman(int*** mat, int n, int** help, int* result)
 template<class T>
 std::vector<T> Graph<T>::GetNbrs(const T& vertex) {
 
-	std::vector<T> nbrsList; // создание списка соседей
-	int vertPos = this->GetVertPos(vertex); // вычисление позиции vertex в матрице смежности
+	std::vector<T> nbrsList; // СЃРѕР·РґР°РЅРёРµ СЃРїРёСЃРєР° СЃРѕСЃРµРґРµР№
+	int vertPos = this->GetVertPos(vertex); // РІС‹С‡РёСЃР»РµРЅРёРµ РїРѕР·РёС†РёРё vertex РІ РјР°С‚СЂРёС†Рµ СЃРјРµР¶РЅРѕСЃС‚Рё
 
 	if (vertPos != (-1)) {
 
 		for (int i = 0, vertListSize = this->vertexList.size(); i < vertListSize; ++i) {
 
-			if (this->adjMatrix[vertPos][i] != 0 && this->adjMatrix[i][vertPos] != 0) nbrsList.push_back(this->vertexList[i]); // вычисление соседей
+			if (this->adjMatrix[vertPos][i] != 0 && this->adjMatrix[i][vertPos] != 0) nbrsList.push_back(this->vertexList[i]); // РІС‹С‡РёСЃР»РµРЅРёРµ СЃРѕСЃРµРґРµР№
 
 		}
 	}
@@ -223,7 +223,7 @@ void Graph<T>::InsertVertex(const T& vertex) {
 	}
 
 	else {
-		cout << "Граф уже заполнен. Невозможно добавить новую вершину " << endl;
+		cout << "Р“СЂР°С„ СѓР¶Рµ Р·Р°РїРѕР»РЅРµРЅ. РќРµРІРѕР·РјРѕР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ РЅРѕРІСѓСЋ РІРµСЂС€РёРЅСѓ " << endl;
 		return;
 	}
 }
@@ -238,9 +238,9 @@ void Graph<T>::DeleteVertex() {
 
 template<class T>
 int Graph<T>::GetAmountEdges() {
-	int amount = 0; // обнуляем счетчик
+	int amount = 0; // РѕР±РЅСѓР»СЏРµРј СЃС‡РµС‚С‡РёРє
 
-	if (!this->IsEmpty()) { // проверяем, что граф не пуст
+	if (!this->IsEmpty()) { // РїСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ РіСЂР°С„ РЅРµ РїСѓСЃС‚
 
 		for (int i = 0, vertListSize = this->vertexList.size();
 			i < vertListSize; ++i) {
@@ -249,15 +249,15 @@ int Graph<T>::GetAmountEdges() {
 
 				if (this->adjMatrix[i][j] ==
 					this->adjMatrix[j][i] &&
-					this->adjMatrix[i][j] != 0) // находим рёбра
-					amount += 1; // считаем количество рёбер
+					this->adjMatrix[i][j] != 0) // РЅР°С…РѕРґРёРј СЂС‘Р±СЂР°
+					amount += 1; // СЃС‡РёС‚Р°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ СЂС‘Р±РµСЂ
 			}
 		}
-		return (amount / 2); // приводим счетчик к корректному результату и возвращаем его
+		return (amount / 2); // РїСЂРёРІРѕРґРёРј СЃС‡РµС‚С‡РёРє Рє РєРѕСЂСЂРµРєС‚РЅРѕРјСѓ СЂРµР·СѓР»СЊС‚Р°С‚Сѓ Рё РІРѕР·РІСЂР°С‰Р°РµРј РµРіРѕ
 	}
 
 	else
-		return 0; // если граф пуст, возвращаем 0
+		return 0; // РµСЃР»Рё РіСЂР°С„ РїСѓСЃС‚, РІРѕР·РІСЂР°С‰Р°РµРј 0
 }
 
 template<class T>
@@ -320,34 +320,34 @@ Graph<T>::~Graph() {
 
 Graph<int> makeGraph()
 {
-	Graph<int> graph; // создание графа, содержащего вершины с номерами целого типа
+	Graph<int> graph; // СЃРѕР·РґР°РЅРёРµ РіСЂР°С„Р°, СЃРѕРґРµСЂР¶Р°С‰РµРіРѕ РІРµСЂС€РёРЅС‹ СЃ РЅРѕРјРµСЂР°РјРё С†РµР»РѕРіРѕ С‚РёРїР°
 
-	int amountEdges, sourceVertex, targetVertex, edgeWeight; // создание необходимых для ввода графа переменных
+	int amountEdges, sourceVertex, targetVertex, edgeWeight; // СЃРѕР·РґР°РЅРёРµ РЅРµРѕР±С…РѕРґРёРјС‹С… РґР»СЏ РІРІРѕРґР° РіСЂР°С„Р° РїРµСЂРµРјРµРЅРЅС‹С…
 
-	cout << "Введите количество вершин графа: "; cin >> amountVerts; cout << endl; // ввод количества рёбер графа в переменную amountVerts
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІРµСЂС€РёРЅ РіСЂР°С„Р°: "; cin >> amountVerts; cout << endl; // РІРІРѕРґ РєРѕР»РёС‡РµСЃС‚РІР° СЂС‘Р±РµСЂ РіСЂР°С„Р° РІ РїРµСЂРµРјРµРЅРЅСѓСЋ amountVerts
 
-	cout << "Введите количество ребер графа: "; cin >> amountEdges; cout << endl; // ввод количества рёбер графа в переменную amountEdges
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЂРµР±РµСЂ РіСЂР°С„Р°: "; cin >> amountEdges; cout << endl; // РІРІРѕРґ РєРѕР»РёС‡РµСЃС‚РІР° СЂС‘Р±РµСЂ РіСЂР°С„Р° РІ РїРµСЂРµРјРµРЅРЅСѓСЋ amountEdges
 
 	for (int i = 1; i <= amountVerts; ++i) {
 
-		int* vertPtr = &i; // запоминаем адрес вершины с помощью указателя
+		int* vertPtr = &i; // Р·Р°РїРѕРјРёРЅР°РµРј Р°РґСЂРµСЃ РІРµСЂС€РёРЅС‹ СЃ РїРѕРјРѕС‰СЊСЋ СѓРєР°Р·Р°С‚РµР»СЏ
 
-		graph.InsertVertex(*vertPtr); //передаём ссылку на вершину в функцию InsertVertex; происходит вставка вершины в вектор вершин
+		graph.InsertVertex(*vertPtr); //РїРµСЂРµРґР°С‘Рј СЃСЃС‹Р»РєСѓ РЅР° РІРµСЂС€РёРЅСѓ РІ С„СѓРЅРєС†РёСЋ InsertVertex; РїСЂРѕРёСЃС…РѕРґРёС‚ РІСЃС‚Р°РІРєР° РІРµСЂС€РёРЅС‹ РІ РІРµРєС‚РѕСЂ РІРµСЂС€РёРЅ
 	}
 
 	for (int i = 0; i < amountEdges; ++i) {
 
-		cout << "Исходная вершина: "; cin >> sourceVertex; cout << endl; // ввод исходной вершины
+		cout << "РСЃС…РѕРґРЅР°СЏ РІРµСЂС€РёРЅР°: "; cin >> sourceVertex; cout << endl; // РІРІРѕРґ РёСЃС…РѕРґРЅРѕР№ РІРµСЂС€РёРЅС‹
 
-		int* sourceVertPtr = &sourceVertex; // запоминаем адрес исходной вершины
+		int* sourceVertPtr = &sourceVertex; // Р·Р°РїРѕРјРёРЅР°РµРј Р°РґСЂРµСЃ РёСЃС…РѕРґРЅРѕР№ РІРµСЂС€РёРЅС‹
 
-		cout << "Конечная вершина: "; cin >> targetVertex; cout << endl; // ввод вершины, до которой будет идти ребро от исходной вершины
+		cout << "РљРѕРЅРµС‡РЅР°СЏ РІРµСЂС€РёРЅР°: "; cin >> targetVertex; cout << endl; // РІРІРѕРґ РІРµСЂС€РёРЅС‹, РґРѕ РєРѕС‚РѕСЂРѕР№ Р±СѓРґРµС‚ РёРґС‚Рё СЂРµР±СЂРѕ РѕС‚ РёСЃС…РѕРґРЅРѕР№ РІРµСЂС€РёРЅС‹
 
-		int* targetVertPtr = &targetVertex; // запоминаем адрес конечной вершины (до которой будет идти ребро от исходной вершины)
+		int* targetVertPtr = &targetVertex; // Р·Р°РїРѕРјРёРЅР°РµРј Р°РґСЂРµСЃ РєРѕРЅРµС‡РЅРѕР№ РІРµСЂС€РёРЅС‹ (РґРѕ РєРѕС‚РѕСЂРѕР№ Р±СѓРґРµС‚ РёРґС‚Рё СЂРµР±СЂРѕ РѕС‚ РёСЃС…РѕРґРЅРѕР№ РІРµСЂС€РёРЅС‹)
 
-		cout << "Вес ребра: "; cin >> edgeWeight; cout << endl; // ввод числового значения веса ребра в переменную edgeWeight
+		cout << "Р’РµСЃ СЂРµР±СЂР°: "; cin >> edgeWeight; cout << endl; // РІРІРѕРґ С‡РёСЃР»РѕРІРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІРµСЃР° СЂРµР±СЂР° РІ РїРµСЂРµРјРµРЅРЅСѓСЋ edgeWeight
 
-		graph.InsertEdge(*sourceVertPtr, *targetVertPtr, edgeWeight); // вставка ребра весом edgeWeight между исходной и конечной вершинами
+		graph.InsertEdge(*sourceVertPtr, *targetVertPtr, edgeWeight); // РІСЃС‚Р°РІРєР° СЂРµР±СЂР° РІРµСЃРѕРј edgeWeight РјРµР¶РґСѓ РёСЃС…РѕРґРЅРѕР№ Рё РєРѕРЅРµС‡РЅРѕР№ РІРµСЂС€РёРЅР°РјРё
 	}
 
 	cout << endl;
@@ -364,7 +364,7 @@ void Graph<T>::InsertEdge(const T& vertex1, const T& vertex2, int weight) {
 
 		if (this->adjMatrix[vertPos1][vertPos2] != 0
 			&& this->adjMatrix[vertPos2][vertPos1] != 0) {
-			cout << "Ребро между вершинами уже есть" << endl;
+			cout << "Р РµР±СЂРѕ РјРµР¶РґСѓ РІРµСЂС€РёРЅР°РјРё СѓР¶Рµ РµСЃС‚СЊ" << endl;
 			return;
 		}
 
@@ -375,7 +375,7 @@ void Graph<T>::InsertEdge(const T& vertex1, const T& vertex2, int weight) {
 	}
 
 	else {
-		cout << "Обеих вершин (или одной из них) нет в графе " << endl;
+		cout << "РћР±РµРёС… РІРµСЂС€РёРЅ (РёР»Рё РѕРґРЅРѕР№ РёР· РЅРёС…) РЅРµС‚ РІ РіСЂР°С„Рµ " << endl;
 		return;
 	}
 }
@@ -384,7 +384,7 @@ template<class T>
 void Graph<T>::Print() {
 	if (!this->IsEmpty())
 	{
-		cout << "Матрица смежности графа: " << endl;
+		cout << "РњР°С‚СЂРёС†Р° СЃРјРµР¶РЅРѕСЃС‚Рё РіСЂР°С„Р°: " << endl;
 
 		cout << "=  ";
 		for (int i = 0; i < vertexList.size(); ++i)
@@ -404,7 +404,7 @@ void Graph<T>::Print() {
 	}
 	else
 	{
-		cout << "Граф пуст " << endl;
+		cout << "Р“СЂР°С„ РїСѓСЃС‚ " << endl;
 	}
 }
 
@@ -433,7 +433,7 @@ void setCoord(int i, int n)
 	vertC[i].y = y1;
 }
 
-void drawCircle(int x, int y, int R) //рисуем круг в заданных координатах
+void drawCircle(int x, int y, int R) //СЂРёСЃСѓРµРј РєСЂСѓРі РІ Р·Р°РґР°РЅРЅС‹С… РєРѕРѕСЂРґРёРЅР°С‚Р°С…
 {
 	glColor3f(1.0, 1.0, 0.6);
 	float x1, y1;
@@ -481,7 +481,7 @@ void drawVertex(int n)
 	}
 }
 
-void drawLine(int text, int x0, int y0, int x1, int y1) //ребро неориентированный взвешенный граф
+void drawLine(int text, int x0, int y0, int x1, int y1) //СЂРµР±СЂРѕ РЅРµРѕСЂРёРµРЅС‚РёСЂРѕРІР°РЅРЅС‹Р№ РІР·РІРµС€РµРЅРЅС‹Р№ РіСЂР°С„
 {
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINES);
@@ -619,9 +619,9 @@ void mouseClick(int btn, int stat, int x, int y) {
 			int targetVertex;
 			int edgeWeight;
 
-			cout << "Исходная вершина: "; cin >> sourceVertex; cout << endl;
+			cout << "РСЃС…РѕРґРЅР°СЏ РІРµСЂС€РёРЅР°: "; cin >> sourceVertex; cout << endl;
 			int* sourceVertPtr = &sourceVertex;
-			cout << "Конечная вершина: "; cin >> targetVertex; cout << endl;
+			cout << "РљРѕРЅРµС‡РЅР°СЏ РІРµСЂС€РёРЅР°: "; cin >> targetVertex; cout << endl;
 			int* targetVertPtr = &targetVertex;
 
 			if (sourceVertex > amountVerts || targetVertex > amountVerts) {
@@ -630,7 +630,7 @@ void mouseClick(int btn, int stat, int x, int y) {
 				graph.InsertVertex(*vertPtr);
 			}
 
-			cout << "Вес ребра: "; cin >> edgeWeight; cout << endl;
+			cout << "Р’РµСЃ СЂРµР±СЂР°: "; cin >> edgeWeight; cout << endl;
 			graph.InsertEdge(*sourceVertPtr, *targetVertPtr, edgeWeight); // 
 		}
 
@@ -640,7 +640,7 @@ void mouseClick(int btn, int stat, int x, int y) {
 			int targetVertex;
 			int edgeWeight;
 
-			cout << "Введите вершину: "; cin >> sourceVertex; cout << endl;
+			cout << "Р’РІРµРґРёС‚Рµ РІРµСЂС€РёРЅСѓ: "; cin >> sourceVertex; cout << endl;
 			int* sourceVertPtr = &sourceVertex;
 
 			if (sourceVertex == amountVerts)
@@ -649,7 +649,7 @@ void mouseClick(int btn, int stat, int x, int y) {
 				graph.DeleteVertex();
 			}
 
-			else cout << "Невозможно удалить вершину \n";
+			else cout << "РќРµРІРѕР·РјРѕР¶РЅРѕ СѓРґР°Р»РёС‚СЊ РІРµСЂС€РёРЅСѓ \n";
 		}
 
 		if (x > shift && x < shift + 135 && y > height - height1 + shift + 250 && y < height - height1 + shift + 300)
@@ -677,7 +677,7 @@ void display()
 	glShadeModel(GL_SMOOTH);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluOrtho2D(0, WinW, 0, WinH); //ставим начало координат в левый нижний угол
+	gluOrtho2D(0, WinW, 0, WinH); //СЃС‚Р°РІРёРј РЅР°С‡Р°Р»Рѕ РєРѕРѕСЂРґРёРЅР°С‚ РІ Р»РµРІС‹Р№ РЅРёР¶РЅРёР№ СѓРіРѕР»
 	glViewport(0, 0, WinW, WinH);
 	glClearColor(1.0, 0.5, 0.0, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT);
